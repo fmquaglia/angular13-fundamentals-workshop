@@ -43,16 +43,22 @@
       </mat-card-content>
       <mat-card-actions>
 
-        <!-- COURSE ACTIONS -->
+       <button
+         type="button"
+         (click)="selectCourse(null)"
+         mat-button
+       >
+         Cancel
+       </button>
 
       </mat-card-actions>
     </mat-card>
     <ng-template #notSelectedCourse>
       <mat-card>
         <mat-card-header>
-          <h2>
+          <mat-card-title>
             Select a Course from the list
-          </h2>
+          </mat-card-title>
         </mat-card-header>
       </mat-card>
     </ng-template>
