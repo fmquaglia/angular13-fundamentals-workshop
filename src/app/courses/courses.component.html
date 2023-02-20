@@ -31,7 +31,7 @@
   </div>
 
   <div class="course-details">
-    <mat-card *ngIf="selectedCourse">
+    <mat-card *ngIf="selectedCourse?.id; else notSelectedCourse">
       <mat-card-header>
         <mat-card-title>
           {{selectedCourse.title}}
@@ -47,10 +47,14 @@
 
       </mat-card-actions>
     </mat-card>
-    <mat-card *ngIf="!selectedCourse">
-      <mat-card-header>
-        Select a Course from the list
-      </mat-card-header>
-    </mat-card>
+    <ng-template #notSelectedCourse>
+      <mat-card>
+        <mat-card-header>
+          <h2>
+            Select a Course from the list
+          </h2>
+        </mat-card-header>
+      </mat-card>
+    </ng-template>
   </div>
 </div>
