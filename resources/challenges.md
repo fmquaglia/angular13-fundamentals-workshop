@@ -9,6 +9,7 @@ In the `src/app/courses/courses.component.ts` file, complete the following chall
 In the `src/app/courses/courses.component.ts` file, complete the following challenges.
 - Update the form to show `percentComplete`
 - Update the form to show `favorite`
+- Bonus: how can we edit a course without affecting the other representations?
 
 # Module 03: Services Challenges
 Complete the following challenges.

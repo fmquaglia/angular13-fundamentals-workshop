@@ -33,19 +33,54 @@
   <div class="course-details">
     <mat-card *ngIf="selectedCourse?.id; else notSelectedCourse">
       <form #form="ngForm">
-        <mat-card-header>
-          <mat-card-title>
-            {{selectedCourse.title | titlecase}}
-          </mat-card-title>
-        </mat-card-header>
+        <input type="hidden" name="id" [(ngModel)]="selectedCourse.id"/>
         <mat-card-content>
-          <p>{{selectedCourse.description}}</p>
-          <p>Progress: {{selectedCourse.percentComplete}}%</p>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="title"
+              [(ngModel)]="selectedCourse.title"
+              name="title"
+              required
+              type="text"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="description"
+              [(ngModel)]="selectedCourse.description"
+              name="description"
+              required
+              type="text"
+            />
+          </mat-form-field>
+          <div>
+            <label>% Complete: {{selectedCourse.percentComplete}}</label>
+            <br>
+            <mat-slider
+              [max]="100"
+              [min]="0"
+              [step]="1"
+              [thumbLabel]="true"
+              [(ngModel)]="selectedCourse.percentComplete"
+              aria-labelledby="% Complete"
+              name="percentComplete"
+            ></mat-slider>
+          </div>
+          <div>
+            <mat-checkbox
+              name="favorite"
+              [(ngModel)]="selectedCourse.favorite"
+            >
+              Favorite
+            </mat-checkbox>
+          </div>
         </mat-card-content>
         <mat-card-actions>
           <button
             type="button"
-            (click)="selectCourse(null)"
+            (click)="reset()"
             mat-button
           >
             Cancel
