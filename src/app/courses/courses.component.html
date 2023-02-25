@@ -34,6 +34,9 @@
     <mat-card *ngIf="selectedCourse?.id; else notSelectedCourse">
       <form #form="ngForm">
         <input type="hidden" name="id" [(ngModel)]="selectedCourse.id"/>
+        <mat-card-header>
+          <mat-card-title>{{originalTitle}}</mat-card-title>
+        </mat-card-header>
         <mat-card-content>
           <mat-form-field>
             <input
@@ -46,18 +49,17 @@
             />
           </mat-form-field>
           <mat-form-field>
-            <input
+            <textarea
               matInput
               placeholder="description"
               [(ngModel)]="selectedCourse.description"
               name="description"
               required
               type="text"
-            />
+            ></textarea>
           </mat-form-field>
-          <div>
-            <label>% Complete: {{selectedCourse.percentComplete}}</label>
-            <br>
+          <section class="full-width">
+            <h4>% Complete: {{selectedCourse.percentComplete}}</h4>
             <mat-slider
               [max]="100"
               [min]="0"
@@ -67,17 +69,26 @@
               aria-labelledby="% Complete"
               name="percentComplete"
             ></mat-slider>
-          </div>
-          <div>
+          </section>
+          <section class="full-width">
             <mat-checkbox
               name="favorite"
               [(ngModel)]="selectedCourse.favorite"
             >
               Favorite
             </mat-checkbox>
-          </div>
+          </section>
         </mat-card-content>
         <mat-card-actions>
+          <button
+            type="submit"
+            [disabled]="form.invalid"
+            mat-button
+            color="primary"
+            (click)="saveCourse(selectedCourse)"
+          >
+            Save
+          </button>
           <button
             type="button"
             (click)="reset()"

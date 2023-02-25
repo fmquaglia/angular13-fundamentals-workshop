@@ -14,16 +14,16 @@ export class CoursesComponent implements OnInit {
     percentComplete: 0,
     favorite: false,
   }
-  courses = [
+  courses:Course[] = [
     {
-      id: 1,
+      id: '1',
       title: 'Angular 13 Fundamentals',
       description: 'Learn the fundamentals of Angular 13',
       percentComplete: 26,
       favorite: true
     },
     {
-      id: 2,
+      id: '2',
       title: 'Advanced Angular 13',
       description: 'Learn the advanced features of Angular 13',
       percentComplete: 10,
@@ -32,9 +32,11 @@ export class CoursesComponent implements OnInit {
 
   ];
 
-  selectedCourse = null;
+  selectedCourse:Course = null;
+  originalTitle: string;
 
   selectCourse(course) {
+    this.originalTitle = course.title;
     this.selectedCourse = {...course};
   }
 
@@ -42,8 +44,13 @@ export class CoursesComponent implements OnInit {
     console.log(`Deleting course ${course.id}`);
   }
 
+  saveCourse(course) {
+    console.log(`Saving course ${course.id}`);
+  }
+
   reset() {
-    this.selectedCourse({...this.emptyCourse});
+    this.originalTitle = null
+    this.selectedCourse = {...this.emptyCourse};
   }
 
   constructor() { }
