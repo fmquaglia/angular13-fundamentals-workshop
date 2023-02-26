@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Course} from "../common/interfaces/course";
+import {CoursesService} from "../common/services/courses.service";
 
 @Component({
   selector: 'app-courses',
@@ -7,6 +8,7 @@ import {Course} from "../common/interfaces/course";
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
+  courses:Course[] = []
   emptyCourse:Course = {
     id: null,
     title: '',
@@ -14,30 +16,18 @@ export class CoursesComponent implements OnInit {
     percentComplete: 0,
     favorite: false,
   }
-  courses:Course[] = [
-    {
-      id: '1',
-      title: 'Angular 13 Fundamentals',
-      description: 'Learn the fundamentals of Angular 13',
-      percentComplete: 26,
-      favorite: true
-    },
-    {
-      id: '2',
-      title: 'Advanced Angular 13',
-      description: 'Learn the advanced features of Angular 13',
-      percentComplete: 10,
-      favorite: false
-    },
-
-  ];
-
   selectedCourse:Course = null;
   originalTitle: string;
 
+  constructor(private coursesService:CoursesService) { }
+
+  ngOnInit(): void {
+    this.courses = this.coursesService.courses
+  }
+
   selectCourse(course) {
-    this.originalTitle = course.title;
     this.selectedCourse = {...course};
+    this.originalTitle = course.title;
   }
 
   deleteCourse(course) {
@@ -52,10 +42,4 @@ export class CoursesComponent implements OnInit {
     this.originalTitle = null
     this.selectedCourse = {...this.emptyCourse};
   }
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
