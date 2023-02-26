@@ -9,6 +9,9 @@ import {NgModule} from '@angular/core';
 
 import {CoursesComponent} from './courses/courses.component';
 import {
+  CourseDetailsComponent
+} from './courses/course-details/course-details.component';
+import {
   CoursesListComponent
 } from './courses/courses-list/courses-list.component';
 import {HomeComponent} from './home/home.component';
@@ -25,6 +28,7 @@ import {HomeComponent} from './home/home.component';
   declarations: [
     AppComponent,
     CoursesComponent,
+    CourseDetailsComponent,
     CoursesListComponent,
     HomeComponent,
   ],
