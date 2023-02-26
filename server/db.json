@@ -8,17 +8,51 @@
       "favorite": true
     },
     {
-      "id": "yz8Ei3S",
-      "title": "New Course",
-      "description": "Super awesome ya'all! Holla!",
-      "percentComplete": 0,
+      "id": "2",
+      "title": "Advanced Angular 13!!!",
+      "description": "Learn the advanced features of Angular 13",
+      "percentComplete": 10,
+      "favorite": true
+    },
+    {
+      "id": "3",
+      "title": "Rapid Application Development",
+      "description": "How to leverage the tools and libraries for rapid application development",
+      "percentComplete": 100,
+      "favorite": true
+    },
+    {
+      "id": "4",
+      "title": "React from scratch",
+      "description": "Learn the basics of React",
+      "percentComplete": 50,
       "favorite": true
     }
   ],
   "lessons": [
     {
-      "id": "1",
+      "title": "Hello Angular"
+    },
+    {
+      "title": "Component Fundamentals"
+    },
+    {
+      "title": "Template Driven Forms"
+    },
+    {
+      "title": "Angular Services"
+    },
+    {
+      "title": "Server Communication"
+    },
+    {
       "title": "Component Driven Architecture"
+    },
+    {
+      "title": "Angular Routing"
+    },
+    {
+      "title": "Unit Testing Fundamentals"
     }
   ]
 }
