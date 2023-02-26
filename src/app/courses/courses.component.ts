@@ -55,7 +55,6 @@ export class CoursesComponent implements OnInit {
   }
 
   deleteCourse(courseId) {
-    console.log('DELETE COURSE', courseId);
     if (confirm('Are you sure?')) {
       this.coursesService.delete(courseId)
         .subscribe(result => this.fetchCourses());
