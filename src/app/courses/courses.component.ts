@@ -16,9 +16,8 @@ const emptyCourse: Course = {
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  courses = [];
-  selectedCourse = emptyCourse;
-  originalTitle = '';
+  courses:Course[] = [];
+  selectedCourse:Course = emptyCourse;
 
   constructor(private coursesService: CoursesService) { }
 
@@ -27,8 +26,7 @@ export class CoursesComponent implements OnInit {
   }
 
   selectCourse(course) {
-    this.selectedCourse = {...course};
-    this.originalTitle = course.title;
+    this.selectedCourse = course;
   }
 
   fetchCourses() {

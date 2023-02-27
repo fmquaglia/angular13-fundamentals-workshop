@@ -9,10 +9,10 @@
     },
     {
       "id": "2",
-      "title": "Advanced Angular 13!!!",
+      "title": "Advanced Angular 13",
       "description": "Learn the advanced features of Angular 13",
-      "percentComplete": 10,
-      "favorite": true
+      "percentComplete": 50,
+      "favorite": false
     },
     {
       "id": "3",
@@ -26,6 +26,13 @@
       "title": "React from scratch",
       "description": "Learn the basics of React",
       "percentComplete": 50,
+      "favorite": true
+    },
+    {
+      "id": "oytES82",
+      "title": "Test",
+      "description": "foo bar",
+      "percentComplete": 56,
       "favorite": true
     }
   ],

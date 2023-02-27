@@ -9,8 +9,7 @@
 
   <div class="course-details">
     <app-course-details
-      [selectedCourse]="selectedCourse"
-      [originalTitle]="originalTitle"
+      [course]="selectedCourse"
       (savedCourseForm)="saveCourse($event)"
       (resetCourseForm)="reset()"
     ></app-course-details>
