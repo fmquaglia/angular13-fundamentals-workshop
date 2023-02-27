@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Course } from '../common/models/course';
-import { CoursesService } from '../common/services/courses.service';
+import {Component, OnInit} from '@angular/core';
+import {Course} from '../common/models/course';
+import {CoursesService} from '../common/services/courses.service';
 
 const emptyCourse: Course = {
   id: null,
@@ -16,10 +16,10 @@ const emptyCourse: Course = {
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  courses:Course[] = [];
-  selectedCourse:Course = emptyCourse;
+  courses$: any
+  selectedCourse: Course = emptyCourse;
 
-  constructor(private coursesService: CoursesService) { }
+  constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
     this.fetchCourses();
@@ -30,12 +30,11 @@ export class CoursesComponent implements OnInit {
   }
 
   fetchCourses() {
-    this.coursesService.all()
-      .subscribe((result:any) => this.courses = result)
+    this.courses$ = this.coursesService.all()
   }
 
   saveCourse(course) {
-    if(course.id) {
+    if (course.id) {
       this.updateCourse(course);
     } else {
       this.createCourse(course);
